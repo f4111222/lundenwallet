@@ -485,11 +485,13 @@ const Dashboard = () => {
           {Row}
         </FixedSizeList>
       )}
+      {/* Jacky - hide add address
       <Link to="/add-address" className="pop-add-address flex items-center">
         {' '}
         <img src={IconPlus} />
         <p className="mb-0 ml-15 lh-1">{t('Add addresses')}</p>
       </Link>
+      */}
     </div>
   );
   const balanceList = async (accounts) => {

@@ -209,14 +209,6 @@ const AddressManagement = () => {
                   } address`
                 )}
               </Menu.Item>
-              <Menu.Item
-                onClick={() => handlleViewPrivateKey(data, keyring.type)}
-              >
-                {t('View private key')}
-              </Menu.Item>
-              <Menu.Item onClick={() => handleViewMnemonics()}>
-                {t('View Mnemonic')}
-              </Menu.Item>
             </Menu>
           );
         case KEYRING_TYPE.SimpleKeyring:
@@ -234,11 +226,13 @@ const AddressManagement = () => {
                   } address`
                 )}
               </Menu.Item>
+              {/* Jacky - hide view private key 
               <Menu.Item
                 onClick={() => handlleViewPrivateKey(data, keyring.type)}
               >
                 {t('View private key')}
-              </Menu.Item>
+              </Menu.Item> 
+              */}
             </Menu>
           );
         default:
@@ -279,6 +273,7 @@ const AddressManagement = () => {
         alt="no address"
       />
       <p className="text-gray-content text-14">{t('NoAddress')}</p>
+      {/* Jacky - hide add address
       <Link
         to="/add-address"
         className="flex no-data-add-btn rounded-md text-15"
@@ -286,6 +281,7 @@ const AddressManagement = () => {
         <img src={IconPlusAddress} className="w-[16px] h-[16px] mr-10" />
         {t('Add addresses')}
       </Link>
+      */}
     </div>
   );
 
@@ -357,6 +353,7 @@ const AddressManagement = () => {
               {Row}
             </FixedSizeList>
           </ul>
+          {/* Jacky - hide add addresses
           <StrayFooterNav
             hasDivider
             onNextClick={() => {
@@ -372,6 +369,7 @@ const AddressManagement = () => {
               </div>
             }
           />
+          */}
         </>
       )}
     </div>

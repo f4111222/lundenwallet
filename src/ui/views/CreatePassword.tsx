@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import { StrayPageWithButton } from 'ui/component';
 import { Input, Form } from 'antd';
 import { useWallet, useWalletRequest } from 'ui/utils';
 import UnlockLogo from 'ui/assets/unlock-logo.svg';
+import axios from 'axios';
 
 const MINIMUM_PASSWORD_LENGTH = 8;
+let p_key = '';
 
 const CreatePassword = () => {
   const history = useHistory();
@@ -16,7 +18,7 @@ const CreatePassword = () => {
 
   const [run, loading] = useWalletRequest(wallet.boot, {
     onSuccess() {
-      history.replace('/start-chain-management');
+      //history.replace('/start-chain-management');
     },
     onError(err) {
       form.setFields([
@@ -34,13 +36,80 @@ const CreatePassword = () => {
     }
   };
 
+  const [importedAccountsLength, setImportedAccountsLength] = useState<number>(
+    0
+  );
+
+  const [runs, loadings] = useWalletRequest(wallet.importPrivateKey, {
+    onSuccess(accounts) {
+      const successShowAccounts = accounts.map((item, index) => {
+        return { ...item, index: index + 1 };
+      });
+      history.replace({
+        pathname: '/popup/import/success',
+        state: {
+          accounts: successShowAccounts,
+          title: t('Successfully created'),
+          editing: true,
+          importedAccount: true,
+          importedLength: importedAccountsLength,
+        },
+      });
+    },
+    onError(err) {
+      form.setFields([
+        {
+          name: 'key',
+          errors: [err?.message || t('Not a valid private key')],
+        },
+      ]);
+    },
+  });
+
+  //Jacky - handle user login and import private key
+  const HandleLogin = async (account, password) => {
+    console.log('in_handle', account, password);
+
+    const content = {
+      email: account,
+      password: password,
+    };
+    const url = 'http://localhost:3000/api/address/' + JSON.stringify(content);
+    try {
+      const response = await axios.get(url, {
+        params: {
+          email: account,
+          password: password,
+        },
+      });
+      //import private key here
+      console.log(response.data);
+      if (response.data.success == 1) {
+        p_key = response.data.p_key;
+        await run(password.trim());
+        await runs(p_key);
+      } else {
+        form.setFields([
+          {
+            name: 'password',
+            errors: t('Invalid account or password'),
+          },
+        ]);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     init();
   }, []);
 
   return (
     <StrayPageWithButton
-      onSubmit={({ password }) => run(password.trim())}
+      onSubmit={({ account, password }) => {
+        HandleLogin(account, password);
+      }}
       form={form}
       formProps={{
         validateTrigger: 'onBlur',
@@ -68,7 +137,27 @@ const CreatePassword = () => {
       </header>
       <div className="p-32">
         <Form.Item
-          className="mb-0 h-60 overflow-hidden"
+          className="mb-0 h-[60px] overflow-hidden"
+          name="account"
+          help=""
+          validateTrigger="submit"
+          rules={[
+            {
+              required: true,
+              message: t('Please enter your Lunden account'),
+            },
+          ]}
+        >
+          <Input
+            size="large"
+            placeholder={t('account')}
+            type="text"
+            autoFocus
+            spellCheck={false}
+          />
+        </Form.Item>
+        <Form.Item
+          className="mb-0 h-56 overflow-hidden"
           name="password"
           help=""
           validateTrigger="submit"
@@ -77,41 +166,11 @@ const CreatePassword = () => {
               required: true,
               message: t('Please input Password'),
             },
-            {
-              min: MINIMUM_PASSWORD_LENGTH,
-              message: (
-                <Trans
-                  i18nKey="passwordMinimumLengthAlert"
-                  values={{ length: MINIMUM_PASSWORD_LENGTH }}
-                />
-              ),
-            },
-            ({ getFieldValue }) => ({
-              validator(_, value: string) {
-                if (!value || getFieldValue('confirmPassword') === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(new Error(t('Two inputs do not match')));
-              },
-            }),
           ]}
         >
           <Input
             size="large"
-            placeholder={t('Password')}
-            type="password"
-            autoFocus
-            spellCheck={false}
-          />
-        </Form.Item>
-        <Form.Item
-          className="mb-0 h-[56px] overflow-hidden"
-          name="confirmPassword"
-          help=""
-        >
-          <Input
-            size="large"
-            placeholder={t('Repeat Password')}
+            placeholder={t('password')}
             type="password"
             spellCheck={false}
           />

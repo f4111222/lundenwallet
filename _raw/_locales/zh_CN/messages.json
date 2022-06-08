@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Rabby",
+    "message": "Ludens",
     "description": "The name of the application"
   },
   "appDescription": {
@@ -231,7 +231,7 @@
     "message": "选择想要导入的地址"
   },
   "Select__the__addresses__you__to__view__in__Rabby": {
-    "message": "选择地址并在Rabby插件中查看"
+    "message": "选择地址并在Ludens插件中查看"
   },
   "Load__More": {
     "message": "加载更多..."
@@ -270,7 +270,7 @@
     "message": "即将访问"
   },
   "debankExternalLinkAlert": {
-    "message": "为了更好地提供服务，Rabby 使用了 DeBank 所提供的功能"
+    "message": "为了更好地提供服务，Ludens 使用了 DeBank 所提供的功能"
   },
   "Asset__data__loading": {
     "message": "资产数据加载中"
@@ -340,7 +340,7 @@
     "message": "启用链"
   },
   "The__requested__chain__is__not__supported__by__Rabby__yet": {
-    "message": "Rabby 尚不支持该链"
+    "message": "Ludens 尚不支持该链"
   },
   "OK": {
     "message": "确定"
@@ -787,22 +787,22 @@
     "message": "恢复初始设置"
   },
   "SetDefaultWalletAlert": {
-    "message": "是否将 Rabby 设置为默认钱包？"
+    "message": "是否将L udens 设置为默认钱包？"
   },
   "Set__Rabby__as__default__wallet": {
-    "message": "将 Rabby 设置为默认钱包"
+    "message": "将 Ludens 设置为默认钱包"
   },
   "Please__refresh__the__website__your__are__viewing": {
     "message": "请刷新正在使用的网页"
   },
   "CameraPermissionTitle": {
-    "message": "允许 Rabby 使用摄像头"
+    "message": "允许 Ludens 使用摄像头"
   },
   "CameraPermission1": {
-    "message": "允许 Rabby 在浏览器弹窗中使用摄像头"
+    "message": "允许 Ludens 在浏览器弹窗中使用摄像头"
   },
   "CameraPermission2": {
-    "message": "打开 Rabby 并再次导入"
+    "message": "打开 Ludens 并再次导入"
   },
   "From": {
     "message": "From"
@@ -868,13 +868,13 @@
     "message": "余额不足"
   },
   "AllowRabbyPermissionsTitle": {
-    "message": "允许 Rabby 使用权限:"
+    "message": "允许 Ludens 使用权限:"
   },
   "LedgerPermission1": {
     "message": "获取 Ledger 的公钥"
   },
   "LedgerPermission2": {
-    "message": "使用 Rabby 进行文本和交易签名"
+    "message": "使用 Ludens 进行文本和交易签名"
   },
   "Allow": {
     "message": "同意"

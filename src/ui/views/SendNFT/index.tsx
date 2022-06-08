@@ -31,6 +31,7 @@ import IconCopy from 'ui/assets/copy-no-border.svg';
 import IconSuccess from 'ui/assets/success.svg';
 import { SvgIconPlusPrimary, SvgIconLoading, SvgAlert } from 'ui/assets';
 import './style.less';
+import axios, { AxiosResponse } from 'axios';
 
 const TOKEN_VALIDATION_STATUS = {
   PENDING: 0,
@@ -129,6 +130,53 @@ const SendNFT = () => {
     amount: number;
   }) => {
     if (!nftItem) return;
+
+    await wallet.setPageStateCache({
+      path: history.location.pathname,
+      params: {},
+      states: {
+        values: form.getFieldsValue(),
+        nftItem,
+      },
+    });
+
+    const nfttokenid = nftItem.inner_id;
+    const nftchainId = nftItem.chain;
+    const nftcontractId = nftItem.contract_id;
+    //Jacky - NFT transferable validation#
+    const content = {
+      tokenId: nfttokenid,
+      chainId: nftchainId,
+      contractId: nftcontractId,
+      to: to,
+    };
+
+    const url = 'http://localhost:3000/api//NFT/' + JSON.stringify(content);
+    try {
+      const response = await axios.get(url);
+      console.log(response.data.result);
+      if (response.data.result == 0) {
+        return;
+      }
+      try {
+        wallet.transferNFT({
+          to,
+          amount,
+          tokenId: nftItem.inner_id,
+          chainServerId: nftItem.chain,
+          contractId: nftItem.contract_id,
+          abi: nftItem.is_erc1155 ? 'ERC1155' : 'ERC721',
+        });
+        window.close();
+      } catch (e) {
+        message.error(e.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    //Jacky - NFT transferable validation#end
+    /*
     await wallet.setPageStateCache({
       path: history.location.pathname,
       params: {},
@@ -149,7 +197,7 @@ const SendNFT = () => {
       window.close();
     } catch (e) {
       message.error(e.message);
-    }
+    }*/
   };
 
   const handleConfirmContact = (data: ContactBookItem | null, type: string) => {

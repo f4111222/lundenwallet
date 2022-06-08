@@ -653,7 +653,7 @@ export class WalletController extends BaseController {
           description: i18n.t('appDescription'),
           url: 'https://rabby.io',
           icons: ['https://rabby.io/assets/images/logo.png'],
-          name: 'Rabby',
+          name: 'Ludens',
         },
       });
       isNewKey = true;
@@ -1094,7 +1094,7 @@ export class WalletController extends BaseController {
     );
     return await keyring.submitSignature(requestId, cbor);
   };
-
+  //Jacky
   signPersonalMessage = async (
     type: string,
     from: string,

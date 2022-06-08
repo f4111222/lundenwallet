@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Rabby",
+    "message": "Ludens",
     "description": "The name of the application"
   },
   "appDescription": {
@@ -17,7 +17,7 @@
     "message": "History"
   },
   "Set__Unlock__Password": {
-    "message": "Set Unlock Password"
+    "message": "Login Ludens"
   },
   "Set__Current__Address": {
     "message": "Set Current Address",
@@ -112,6 +112,9 @@
   },
   "incorrect__password": {
     "message": "incorrect password"
+  },
+  "Account": {
+    "message": "Account"
   },
   "Password": {
     "message": "Password"
@@ -231,7 +234,7 @@
     "message": "Select the addresses you want to import"
   },
   "Select__the__addresses__you__to__use__in__Rabby": {
-    "message": "Select the addresses to use in Rabby"
+    "message": "Select the addresses to use in Ludens"
   },
   
   "Load__More": {
@@ -271,7 +274,7 @@
     "message": "You will be visiting"
   },
   "debankExternalLinkAlert": {
-    "message": "Rabby uses DeBank's well-established features to provide you with better service"
+    "message": "Ludens uses DeBank's well-established features to provide you with better service"
   },
   "Asset__data__loading": {
     "message": "Asset data loading"
@@ -344,7 +347,7 @@
     "message": "Enable a Chain"
   },
   "The__requested__chain__is__not__supported__by__Rabby__yet": {
-    "message": "The requested chain is not supported by Rabby yet"
+    "message": "The requested chain is not supported by Ludens yet"
   },
   "OK": {
     "message": "OK"
@@ -530,7 +533,7 @@
     "message": "Switching languages"
   },
   "This__password__will__be__used__to__unlock__your__wallet": {
-    "message": "This password will be used to unlock your wallet"
+    "message": "Please use your Ludens account and password to login wallet"
   },
   "Pin__Website": {
     "message": "Pin Website"
@@ -767,7 +770,7 @@
     "message": "The address you're are trying to import is invalid"
   },
   "importAddressDuplicate": {
-    "message": "The address you're are trying to import is already in Rabby"
+    "message": "The address you're are trying to import is already in Ludens"
   },
   "Scan__via__mobile__wallet": {
     "message": "Scan via mobile wallet"
@@ -791,22 +794,22 @@
     "message": "Restore initial setting"
   },
   "SetDefaultWalletAlert": {
-    "message": "Set Rabby as default wallet?"
+    "message": "Set Ludens as default wallet?"
   },
   "Set__Rabby__as__default__wallet": {
-    "message": "Set Rabby as default wallet"
+    "message": "Set Ludens as default wallet"
   },
   "Please__refresh__the__website__your__are__viewing": {
     "message": "Please refresh the website you are viewing"
   },
   "CameraPermissionTitle": {
-    "message": "Allow Rabby to access the camera"
+    "message": "Allow Ludens to access the camera"
   },
   "CameraPermission1": {
-    "message": "Allow Rabby to access the camera in the browser pop-up"
+    "message": "Allow Ludens to access the camera in the browser pop-up"
   },
   "CameraPermission2": {
-    "message": "Open Rabby and try import again"
+    "message": "Open Ludens and try import again"
   },
   "From": {
     "message": "From"
@@ -872,7 +875,7 @@
     "message": "Insufficient balance"
   },
   "AllowRabbyPermissionsTitle": {
-    "message": "Allow Rabby permissions to:"
+    "message": "Allow Ludens permissions to:"
   },
   "LedgerPermission1": {
     "message": "Connect to a HID device"
@@ -1001,7 +1004,7 @@
     "message": "No connected to the right chain of this Gnosis Safe address"
   },
   "ResetAccountDescription1": {
-    "message": "Resetting your account will clear all your pending transactions. This can help you solve the problem that in some cases the state of the transaction in Rabby does not match the state on-chain."
+    "message": "Resetting your account will clear all your pending transactions. This can help you solve the problem that in some cases the state of the transaction in Ludens does not match the state on-chain."
   },
   "ResetAccountDescription2": {
     "message": "This will not change the balances in your accounts or require you to re-enter your Secret Recovery Phrase. All your assets and accounts information will remain secure."

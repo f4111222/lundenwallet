@@ -202,10 +202,10 @@ const ResolveConflictModal = ({
       >
         <div className="field-main">
           <div className="field-title">
-            Prefer Rabby <img src={IconRabby} className="w-[20px]" alt="" />
+            Prefer Ludens <img src={IconRabby} className="w-[20px]" alt="" />
           </div>
           <div className="field-desc">
-            Use Rabby to connect DApps and submit transactions.
+            Use Ludens to connect DApps and submit transactions.
           </div>
         </div>
       </Field>
@@ -227,14 +227,14 @@ const ResolveConflictModal = ({
             <img src={IconMetamask} className="w-[20px]" alt="" />
           </div>
           <div className="field-desc">
-            Use MetaMask to connect DApps and submit transactions. Rabby's
+            Use MetaMask to connect DApps and submit transactions. Ludens's
             pre-sign features will not be available.
           </div>
         </div>
       </Field>
       {!isDefaultWallet && (
         <div className="tips">
-          *Choosing this will prevent Rabby's pre-sign features from working
+          *Choosing this will prevent Ludens's pre-sign features from working
         </div>
       )}
     </div>

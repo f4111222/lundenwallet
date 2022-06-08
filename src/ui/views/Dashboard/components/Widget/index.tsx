@@ -143,7 +143,7 @@ const Widget = ({ visible, onClose }: WidgetProps) => {
           <div className="popup-widget__header">
             <div className="popup-widget__header-title">
               <img src={IconWidget} className="icon icon-widget" />
-              Rabby Widget
+              Ludens Widget
             </div>
             <div className="popup-widget__header-desc">
               Preparing some magic features for you ...

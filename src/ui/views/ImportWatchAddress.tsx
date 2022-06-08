@@ -101,7 +101,7 @@ const ImportWatchAddress = () => {
         description: t('appDescription'),
         url: 'https://rabby.io',
         icons: ['https://rabby.io/assets/images/logo.png'],
-        name: 'Rabby',
+        name: 'Ludens',
       },
     });
     connector.current.on('connect', async (error, payload) => {
